@@ -1,0 +1,21 @@
+{
+  "id": "/mining/bminer-cuda",
+  "cmd": "/root/bminer -uri stratum://acecile.catchall:x@europe.equihash-hub.miningpoolhub.com:20575 -api 0.0.0.0:$PORT0",
+  "cpus": 0.1,
+  "gpus": 1,
+  "mem": 128,
+  "disk": 5000,
+  "ports": [ 0 ],
+  "instances": 1,
+  "container": {
+    "type": "MESOS",
+    "docker": {
+      "image": "acecile/bminer-cuda:latest",
+      "forcePullImage": true
+    }
+  },
+  "upgradeStrategy": {
+    "maximumOverCapacity": 0,
+    "minimumHealthCapacity": 0
+   }
+}
