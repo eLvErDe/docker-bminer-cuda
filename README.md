@@ -42,6 +42,7 @@ nvidia-docker run -it --rm --name bminer-cuda acecile/bminer-cuda /root/bminer -
 Change -pers to the following value (depending on target coin):
 
 |     Coin    |   -pers  |
+|-------------|----------|
 |  BitcoinZ   | BitcoinZ |
 |  Safe Coin  | Safecoin |
 |   ZelCash   | ZelProof |
