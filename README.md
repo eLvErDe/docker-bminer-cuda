@@ -51,6 +51,25 @@ Change -pers to the following value (depending on target coin):
 
 Ouput will looks like:
 ```
+[INFO] [2018-08-29T20:59:05Z] Bminer: When Crypto-mining Made Fast (v10.2.0-c698b5f) 
+[INFO] [2018-08-29T20:59:05Z] Checking updates                             
+[INFO] [2018-08-29T20:59:05Z] Watchdog has started.                        
+[INFO] [2018-08-29T20:59:06Z] Connected to europe.equihash-hub.miningpoolhub.com:20595 
+[INFO] [2018-08-29T20:59:06Z] Starting miner on devices [0]                
+[INFO] [2018-08-29T20:59:06Z] Starting the management API at 0.0.0.0:4068  
+[INFO] [2018-08-29T20:59:06Z] Subscribed to stratum server                 
+[INFO] [2018-08-29T20:59:06Z] Set nonce to 060013fb                        
+[INFO] [2018-08-29T20:59:06Z] Set target to 000000000000000000000000000000000000000000000080a70d74da40a70d00 
+[INFO] [2018-08-29T20:59:06Z] Received new job 8571                        
+[INFO] [2018-08-29T20:59:06Z] Authorized                                   
+[INFO] [2018-08-29T20:59:06Z] Starting miner on device 0...                
+[INFO] [2018-08-29T20:59:06Z] Started miner on device 0                    
+[INFO] [2018-08-29T20:59:28Z] Received new job 8572                        
+[INFO] [2018-08-29T20:59:36Z] [GPU 0] Speed: 52.60 Sol/s 29.20 Nonce/s Temp: 66C Fan: 51% Power: 182W 0.29 Sol/J 
+[INFO] [2018-08-29T20:59:37Z] Total 52.60 Sol/s 29.20 Nonce/s Accepted shares 0 Rejected shares 0 
+[INFO] [2018-08-29T20:59:38Z] Accepted share #5                            
+[INFO] [2018-08-29T21:00:06Z] [GPU 0] Speed: 57.84 Sol/s 29.18 Nonce/s Temp: 66C Fan: 51% Power: 198W 0.29 Sol/J 
+[INFO] [2018-08-29T21:00:07Z] Total 57.84 Sol/s 29.18 Nonce/s Accepted shares 1 Rejected shares 0 
 ```
 
 ## Background job running forever
@@ -74,6 +93,22 @@ curl -X PUT -u marathon\_username:marathon\_password --header 'Content-Type: app
 You can check CUDA usage on the mesos slave (executor host) by running `nvidia-smi` there:
 
 ```
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 384.130                Driver Version: 384.130                   |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|===============================+======================+======================|
+|   0  GeForce GTX 108...  On   | 00000000:82:00.0 Off |                  N/A |
+| 51%   67C    P2   192W / 195W |   2623MiB / 11172MiB |    100%      Default |
++-------------------------------+----------------------+----------------------+
+                                                                               
++-----------------------------------------------------------------------------+
+| Processes:                                                       GPU Memory |
+|  GPU       PID   Type   Process name                             Usage      |
+|=============================================================================|
+|    0     27469      C   /root/bminer                                2612MiB |
++-----------------------------------------------------------------------------+
 ```
 
 [bminer's equihash miner]: https://www.bminer.me
