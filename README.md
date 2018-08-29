@@ -33,6 +33,22 @@ Check bminer's [examples] for escaping special caracters in URI or other options
 nvidia-docker run -it --rm --name bminer-cuda acecile/bminer-cuda /root/bminer -uri stratum://acecile.catchall:x@europe.equihash-hub.miningpoolhub.com:20575 -api 0.0.0.0:4068
 ```
 
+To mine Bitcoin Gold (Equihash 144):
+
+```
+nvidia-docker run -it --rm --name bminer-cuda acecile/bminer-cuda /root/bminer -uri equihash1445://acecile.catchall:x@europe.equihash-hub.miningpoolhub.com:20595 -api 0.0.0.0:4068 -pers BgoldPoW
+```
+
+Change -pers to the following value (depending on target coin):
+
+|     Coin    |   -pers  |
+|  BitcoinZ   | BitcoinZ |
+|  Safe Coin  | Safecoin |
+|   ZelCash   | ZelProof |
+|   SnowGem   | sngemPoW |
+| BitcoinGold | BgoldPoW |
+
+
 Ouput will looks like:
 ```
 ```
