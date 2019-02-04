@@ -21,7 +21,7 @@ RUN apt update && apt -y -o 'Dpkg::Options::=--force-confdef' -o 'Dpkg::Options:
 # https://bitcointalk.org/index.php?topic=2519271.0
 # https://www.bminer.me/releases/
 RUN mkdir /root/src \
-    && wget "https://www.bminercontent.com/releases/bminer-v10.2.0-c698b5f-amd64.tar.xz" -O /root/src/miner.tar.xz \
+    && wget "https://www.bminercontent.com/releases/bminer-v14.1.0-373029c-amd64.tar.xz" -O /root/src/miner.tar.xz \
     && tar xvf /root/src/miner.tar.xz -C /root/src/ \
     && find /root/src -name 'bminer' -exec cp {} /root/bminer \; \
     && chmod 0755 /root/ && chmod 0755 /root/bminer \
