@@ -27,9 +27,17 @@ RUN mkdir /root/src \
     && chmod 0755 /root/ && chmod 0755 /root/bminer \
     && rm -rf /root/src/
 
+# Workaround BMiner not finding libnvml
+# Do not attempt to link in /usr/local/nvidia/lib64, it is dynamic mount by nvidia-docker
+# but /root is also in LD_LIBRARY_PATH
+RUN ln -sf /usr/local/nvidia/lib64/libnvidia-ml.so.1 /root/libnvidia-ml.so
+
 # nvidia-container-runtime @ https://gitlab.com/nvidia/cuda/blob/ubuntu16.04/8.0/runtime/Dockerfile
 ENV PATH /usr/local/nvidia/bin:/usr/local/cuda/bin:${PATH}
 ENV LD_LIBRARY_PATH /usr/local/nvidia/lib:/usr/local/nvidia/lib64
 LABEL com.nvidia.volumes.needed="nvidia_driver"
 ENV NVIDIA_VISIBLE_DEVICES all
 ENV NVIDIA_DRIVER_CAPABILITIES compute,utility
+
+# Workaround nvml not found
+ENV LD_LIBRARY_PATH /root:${LD_LIBRARY_PATH}
